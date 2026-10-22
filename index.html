@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#17130f">
+<title>منيو الياسمين</title>
+<meta name="description" content="منيو مطعم الياسمين للمأكولات السورية - شاورما، مشويات، بيتزا، مناقيش وصفائح">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ================= ألوان البراند ================= */
+:root{
+  --bg:#17130f;        /* بني غامق - الخلفية */
+  --bg2:#211b13;       /* بني أفتح */
+  --bg3:#2c2419;
+  --yellow:#ffc61b;    /* أصفر البراند */
+  --yellow2:#ffd34f;
+  --maroon:#810d06;    /* نبيتي البراند */
+  --maroon2:#a3160c;
+  --ink:#23190b;       /* لون الكتابة على الأصفر */
+  --cream:#fff6dc;
+  --wa:#25d366;
+  --radius:18px;
+  --bar-h:74px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--cream);font-family:"Cairo",Tahoma,Arial,sans-serif}
+body{min-height:100vh;min-height:100dvh}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+img{display:block;max-width:100%}
+
+.wrap{max-width:560px;margin:0 auto;position:relative;min-height:100vh;min-height:100dvh;
+  padding-bottom:calc(var(--bar-h) + 28px + env(safe-area-inset-bottom));
+  background:var(--bg)}
+@media(min-width:600px){.wrap{box-shadow:0 0 0 1px #2a2218,0 20px 60px #000a}}
+
+/* ================= الغلاف ================= */
+.cover{position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  padding:0 24px calc(var(--bar-h) + 56px + env(safe-area-inset-bottom));overflow:hidden;text-align:center}
+.cover .photo{position:absolute;inset:0;background:url(assets/bg.jpg) center 40%/cover no-repeat,url(assets/hero.jpg) center 70%/cover no-repeat;transform:scale(1.05);animation:zoom 14s ease-out forwards}
+.cover .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#17130f33 0%,#17130f66 35%,#17130fe6 70%,#17130f 100%)}
+@keyframes zoom{to{transform:scale(1.14)}}
+.cover>*:not(.photo){position:relative}
+.cover .logo{width:min(78%,340px);filter:drop-shadow(0 6px 18px #0009);animation:rise .8s .1s both}
+.cover .tag{margin:6px 0 4px;font-size:18px;font-weight:700;color:var(--yellow);letter-spacing:.5px;animation:rise .8s .25s both}
+.cover .sub{margin:0 0 26px;font-size:14px;color:#e9dcc0;opacity:.85;animation:rise .8s .35s both}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:var(--ink);font-weight:900;font-size:20px;
+  padding:14px 34px;border-radius:999px;box-shadow:0 10px 30px #ffc61b40,inset 0 -3px 0 #0002;animation:rise .8s .45s both, pulse 2.4s 1.5s infinite;
+  transition:transform .15s}
+.cta:active{transform:scale(.96)}
+.cta svg{width:20px;height:20px}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{box-shadow:0 10px 30px #ffc61b40,0 0 0 0 #ffc61b66}50%{box-shadow:0 10px 30px #ffc61b40,0 0 0 12px #ffc61b00}}
+
+/* ================= الهيدر ================= */
+.head{position:relative;height:178px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:16px}
+.head .photo{position:absolute;inset:0;background:url(assets/bg.jpg) center 35%/cover no-repeat,url(assets/hero-top.jpg) center 45%/cover no-repeat}
+.head .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#17130f88,#17130fcc 60%,var(--bg))}
+.head>*:not(.photo){position:relative}
+.head .logo{width:150px;filter:drop-shadow(0 4px 10px #000a)}
+.head h1{margin:6px 0 0;font-size:28px;font-weight:900;color:#fff;text-shadow:0 2px 12px #000}
+.head h1 .dot{color:var(--yellow)}
+.head .small{font-size:12px;color:#d8c9a6;margin-top:2px}
+
+/* ================= الأقسام (الصفحة 2) ================= */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:6px 16px 0}
+.cat{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:104px;padding:14px 14px 12px;border-radius:var(--radius);
+  background:linear-gradient(150deg,var(--yellow2),var(--yellow));color:var(--ink);overflow:hidden;
+  box-shadow:0 6px 18px #0006,inset 0 -3px 0 #0001;transition:transform .15s;animation:rise .5s both}
+.cat:active{transform:scale(.96)}
+.cat::before{content:"";position:absolute;width:110px;height:110px;border-radius:50%;background:#ffffff2e;left:-34px;bottom:-46px}
+.cat .num{font-size:12px;font-weight:800;color:var(--maroon);opacity:.8}
+.cat .name{font-size:19px;font-weight:900;line-height:1.3}
+.cat .meta{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:700;color:#5b4210}
+.cat .go{width:28px;height:28px;border-radius:50%;background:var(--maroon);color:#fff;display:grid;place-items:center}
+.cat .go svg{width:16px;height:16px}
+.cat.wide{grid-column:1 / -1;min-height:84px}
+
+.hint{margin:16px 16px 0;padding:12px 14px;border-radius:14px;background:var(--bg2);border:1px dashed #5a4626;font-size:13px;color:#e4d4ae;display:flex;gap:10px;align-items:center}
+.hint b{color:var(--yellow)}
+.hint .ic{flex:none;width:30px;height:30px;border-radius:50%;background:var(--maroon);display:grid;place-items:center;color:#fff;font-weight:900}
+
+/* ================= صفحة الصنف ================= */
+.chips{position:sticky;top:0;z-index:5;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;background:#17130fee;backdrop-filter:blur(8px);scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid #4a3a20;background:var(--bg2);color:#f3e4bf;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;transition:.2s}
+.chip.on{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+
+.sec{margin:14px 16px 0;border-radius:var(--radius);background:var(--yellow);color:var(--ink);overflow:hidden;box-shadow:0 8px 22px #0007;scroll-margin-top:62px;animation:rise .45s both}
+.sec-h{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:13px 16px 10px;background:var(--maroon);color:#fff}
+.sec-h h2{margin:0;font-size:19px;font-weight:900}
+.sec-h .cnt{font-size:11px;font-weight:700;background:#ffffff22;padding:2px 9px;border-radius:999px}
+.cols{display:flex;justify-content:flex-end;gap:6px;padding:9px 12px 2px;font-size:12px;font-weight:800;color:var(--maroon)}
+.cols span{width:56px;text-align:center}
+.row{display:flex;align-items:center;gap:8px;padding:9px 12px 9px 12px;border-top:1px solid #23190b1c}
+.cols+.row{border-top:0}
+.row .nm{flex:1;min-width:0;padding-inline-start:4px}
+.row .t{font-weight:800;font-size:15.5px;line-height:1.35}
+.row .d{font-size:12px;font-weight:700;color:var(--maroon);line-height:1.4;margin-top:1px}
+.prices{display:flex;gap:6px;flex:none}
+.p{position:relative;width:56px;height:38px;border:0;border-radius:11px;background:var(--ink);color:var(--yellow);font-weight:900;font-size:15.5px;
+  display:flex;align-items:center;justify-content:center;transition:transform .12s,background .2s;box-shadow:inset 0 -2px 0 #0006}
+.p.single{width:auto;min-width:62px;padding:0 12px}
+.p:active{transform:scale(.92)}
+.p .q{position:absolute;top:-7px;left:-6px;min-width:19px;height:19px;padding:0 5px;border-radius:999px;background:var(--maroon);color:#fff;font-size:11px;
+  display:none;align-items:center;justify-content:center;box-shadow:0 0 0 2px var(--yellow)}
+.p.in .q{display:flex}
+.p.in{background:var(--maroon);color:#fff}
+.p.empty{background:transparent;box-shadow:none;cursor:default}
+.note{margin:0;padding:10px 16px 13px;font-size:12.5px;font-weight:700;color:var(--maroon);background:#ffffff38;border-top:1px solid #23190b1c;line-height:1.6}
+.note b{color:var(--ink)}
+
+.pager{display:flex;gap:10px;margin:18px 16px 0}
+.pager a{flex:1;display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:14px;background:var(--bg2);border:1px solid #3a2e1c;transition:.15s}
+.pager a:active{transform:scale(.97)}
+.pager small{font-size:11px;color:#b6a37c}
+.pager b{font-size:15px;color:var(--yellow)}
+.pager .nx{text-align:left}
+.foot{text-align:center;font-size:11.5px;color:#8f7d5a;margin:18px 16px 0}
+
+/* ================= شريط الأزرار الثابت ================= */
+.bar{position:fixed;z-index:20;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));width:min(calc(100% - 20px),540px);
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:8px;border-radius:22px;background:#211b13f2;backdrop-filter:blur(10px);
+  border:1px solid #4a3a20;box-shadow:0 12px 30px #000c}
+.btn{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:58px;border:0;border-radius:16px;
+  font-weight:800;font-size:13px;overflow:hidden;transition:transform .12s}
+.btn:active{transform:scale(.94)}
+.btn svg{width:22px;height:22px}
+.btn.home{background:var(--bg3);color:var(--yellow);border:1px solid #4a3a20}
+.btn.call{background:var(--yellow);color:var(--ink)}
+.btn.wa{background:var(--wa);color:#063b1c}
+.btn .badge{position:absolute;top:6px;left:10px;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--maroon);color:#fff;font-size:11px;
+  display:none;align-items:center;justify-content:center;box-shadow:0 0 0 2px var(--wa)}
+.btn .badge.show{display:flex;animation:pop .3s}
+@keyframes pop{0%{transform:scale(.4)}70%{transform:scale(1.25)}100%{transform:scale(1)}}
+.ripple{position:absolute;border-radius:50%;background:#fff6;transform:scale(0);animation:rip .55s ease-out forwards;pointer-events:none}
+@keyframes rip{to{transform:scale(4);opacity:0}}
+
+/* ================= السلة ================= */
+.scrim{position:fixed;inset:0;z-index:30;background:#000a;opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim.open{opacity:1;pointer-events:auto}
+.sheet{position:fixed;z-index:31;left:50%;bottom:0;width:min(100%,560px);max-height:82vh;max-height:82dvh;display:flex;flex-direction:column;
+  transform:translate(-50%,105%);transition:transform .3s cubic-bezier(.2,.8,.2,1),visibility .3s;background:var(--bg2);border-radius:24px 24px 0 0;border:1px solid #4a3a20;border-bottom:0;
+  padding-bottom:env(safe-area-inset-bottom);visibility:hidden}
+.sheet.open{transform:translate(-50%,0);visibility:visible}
+.sheet .grab{width:44px;height:5px;border-radius:9px;background:#5a4626;margin:10px auto 4px}
+.sheet h3{margin:4px 18px 8px;font-size:20px;font-weight:900;color:var(--yellow);display:flex;justify-content:space-between;align-items:center}
+.sheet h3 button{background:none;border:0;color:#c9b68e;font-size:13px;font-weight:700;text-decoration:underline}
+.items{overflow:auto;padding:0 14px}
+.it{display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #3a2e1c}
+.it .nm{flex:1;font-weight:700;font-size:14.5px;line-height:1.35}
+.it .nm small{display:block;color:#c9b68e;font-weight:600;font-size:12px}
+.step{display:flex;align-items:center;gap:6px}
+.step button{width:30px;height:30px;border-radius:50%;border:0;background:var(--bg3);color:var(--yellow);font-size:18px;font-weight:900;line-height:1}
+.step span{min-width:18px;text-align:center;font-weight:900}
+.it .sum{width:64px;text-align:left;font-weight:900;color:var(--yellow)}
+.total{display:flex;justify-content:space-between;padding:12px 18px 4px;font-weight:900;font-size:17px}
+.total span:last-child{color:var(--yellow)}
+.small-note{padding:0 18px;font-size:11.5px;color:#a8977a}
+.send{margin:12px 14px 14px;height:54px;border:0;border-radius:16px;background:var(--wa);color:#063b1c;font-size:17px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:10px}
+.send svg{width:22px;height:22px}
+.empty-cart{padding:26px 18px;text-align:center;color:#c9b68e;font-size:14px}
+
+.toast{position:fixed;z-index:40;left:50%;bottom:calc(var(--bar-h) + 30px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;
+  background:var(--cream);color:var(--ink);font-weight:800;font-size:13.5px;padding:10px 16px;border-radius:999px;box-shadow:0 8px 24px #000a;transition:.25s;pointer-events:none;white-space:nowrap;max-width:92vw;overflow:hidden;text-overflow:ellipsis}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+.fade{animation:fadein .3s both}
+/* ================= عرض الخصم ================= */
+.offer{position:relative;display:flex;align-items:center;gap:12px;margin:12px 16px 0;padding:10px 14px;border-radius:16px;overflow:hidden;
+  background:linear-gradient(110deg,var(--maroon),var(--maroon2) 55%,var(--maroon));color:#fff;border:1px solid #ffc61b66;box-shadow:0 8px 22px #810d0655;animation:rise .5s both}
+.offer .spark{position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,#ffffff2e 50%,transparent 70%);transform:translateX(-120%);animation:shine 3s 1s infinite}
+@keyframes shine{60%,100%{transform:translateX(120%)}}
+.offer .ob{flex:none;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:84px;height:84px;border-radius:50%;
+  background:var(--yellow);color:var(--maroon);text-align:center;line-height:1;box-shadow:0 0 0 4px #ffc61b44,inset 0 -3px 0 #0002;animation:wob 2.6s infinite}
+.offer .ob span{font-size:20px;font-weight:900;margin-bottom:2px;color:var(--ink)}
+.offer .ob b{font-size:31px;font-weight:900;letter-spacing:-.5px;direction:ltr}
+@keyframes wob{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(6deg) scale(1.06)}}
+.offer .ot{position:relative;display:flex;flex-direction:column;line-height:1.35}
+.offer .ot b{font-size:17px;font-weight:900;color:var(--yellow)}
+.offer .ot span{font-size:13px;font-weight:700;opacity:.95}
+.cover .offer{margin:0 0 22px;width:100%;max-width:380px;text-align:right;animation:rise .8s .4s both}
+.p s{position:absolute;top:3px;left:0;right:0;font-size:10.5px;font-weight:700;color:#ffc61b99;text-decoration-thickness:1.5px}
+.p .nw{margin-top:11px}
+.p.in s{color:#fff9}
+.total.sub,.total.save{font-size:14px;padding-top:6px}
+.total.save span:last-child{color:#7be3a0}
+.total.sub s{color:#a8977a}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<!-- شريط الأزرار الثلاثة الثابت في كل الصفحات -->
+<nav class="bar" aria-label="أزرار الطلب">
+  <a class="btn home" id="homeBtn" href="?page=2" data-nav>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+    <span id="homeLbl">القائمة الرئيسية</span>
+  </a>
+  <a class="btn call" id="callBtn" href="#">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg>
+    <span>اطلب بالتليفون</span>
+  </a>
+  <button class="btn wa" id="waBtn" type="button">
+    <span class="badge" id="badge">0</span>
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.15l-.3-.18-3 .78.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8-.23-.09-.4-.13-.56.12-.17.25-.64.8-.79.97-.14.16-.29.18-.54.06a6.7 6.7 0 01-3.33-2.9c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.42h-.48a.92.92 0 00-.66.31 2.8 2.8 0 00-.87 2.08 4.85 4.85 0 001.02 2.58 11.1 11.1 0 004.25 3.76c1.58.68 2.2.74 3 .62.48-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.23-.17-.48-.29z"/></svg>
+    <span>اطلب واتساب</span>
+  </button>
+</nav>
+
+<!-- سلة الطلب -->
+<div class="scrim" id="scrim"></div>
+<section class="sheet" id="sheet" aria-label="طلبك">
+  <div class="grab"></div>
+  <h3><span>طلبك</span><button type="button" id="clearBtn">مسح الكل</button></h3>
+  <div class="items" id="items"></div>
+  <div id="totalBox"></div>
+  <button class="send" id="sendBtn" type="button">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm4.5 12.1c-.25-.12-1.47-.72-1.7-.8-.23-.09-.4-.13-.56.12-.17.25-.64.8-.79.97-.14.16-.29.18-.54.06a6.7 6.7 0 01-3.33-2.9c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.42h-.48a.92.92 0 00-.66.31 2.8 2.8 0 00-.87 2.08 4.85 4.85 0 001.02 2.58 11.1 11.1 0 004.25 3.76c1.58.68 2.2.74 3 .62.48-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.23-.17-.48-.29z"/></svg>
+    ابعت الطلب على واتساب
+  </button>
+</section>
+<div class="toast" id="toast"></div>
+
+<script>
+/* =====================================================================
+   ⚙️ الإعدادات — غيّر الأرقام هنا بس
+   PHONE: رقم الاتصال كما يُكتب في مصر (مثال: 01012345678 أو 19xxx)
+   WHATSAPP: رقم الواتساب بالصيغة الدولية بدون + أو أصفار في الأول (مثال: 201012345678)
+   ===================================================================== */
+const CONFIG = {
+  PHONE: "01111809601",
+  WHATSAPP: "201111809601",
+  NAME: "الياسمين للمأكولات السورية",
+  /* 🎉 نسبة الخصم الحالية على كل المنيو — خليها 0 لإلغاء العرض */
+  DISCOUNT: 20
+};
+
+/* =====================================================================
+   📋 المنيو — كل صفحة لها نفس رقمها القديم (?page=3 ... ?page=13)
+   كل صنف: [الاسم, السعر/الأسعار, "وصف اختياري"]
+   ===================================================================== */
+const MENU = {
+  3: { title:"شاورما الفراخ", sections:[
+    { title:"الفتات والوجبات", items:[
+      ["فتة شاورما وسط",170],
+      ["فتة شاورما كبير",240],
+      ["وجبة شاورما عربي سنجل",220],
+      ["وجبة شاورما عربي دبل (الياسمين)",300],
+      ["وجبة شاورما عربي اكسترا",240,"مشروم وجبنة"],
+      ["وجبة شاورما الياسمين اكسترا",320,"مشروم - جبنة - تركي مدخن - ذرة"],
+      ["وجبة توشكا شاورما",230],
+      ["وجبة ماريا شاورما",240]
+    ]},
+    { title:"سندوتشات الشاورما", items:[
+      ["ساندوتش شاورما وسط",105],
+      ["ساندوتش شاورما كبير",125],
+      ["ساندوتش شاورما كايزر",110],
+      ["ساندوتش شاورما شامي وسط",105],
+      ["ساندوتش شاورما شامي كبير",125],
+      ["ساندوتش شاورما عيش فينو",150],
+      ["ساندوتش شاورما أبو العبد (صغير)",70]
+    ]},
+    { title:"الإضافات", items:[
+      ["إضافة بطاطس",20],
+      ["إضافة موتزاريلا / شيدر",25]
+    ]},
+    { title:"شاورما بالكيلو", items:[
+      ["كيلو شاورما",940],
+      ["نص كيلو شاورما",520],
+      ["ربع كيلو شاورما",285]
+    ]}
+  ]},
+  4: { title:"مشويات الفراخ", sections:[
+    { title:"مشاوي الفراخ بالكيلو", cols:["كيلو","نص كيلو"], items:[
+      ["شيش طاووق",[750,430]],
+      ["ستيك فراخ",[750,450]],
+      ["كفتة كباب فراخ",[640,340]],
+      ["جوانح مشوية",[400,220]]
+    ], note:"تقدم مع: أرز - بطاطس - ثومية سبايسي - حمص - مخلل - عيش"},
+    { title:"وجبات مشاوي الفراخ", items:[
+      ["وجبة ميكس فراخ",390],
+      ["وجبة شيش طاووق",230],
+      ["وجبة ستيك فراخ",240],
+      ["وجبة كفتة كباب فراخ",220],
+      ["وجبة جوانح فراخ",160]
+    ], note:"تقدم مع: أرز - بطاطس - ثومية سبايسي - حمص - مخلل - عيش"},
+    { title:"فراخ شواية", items:[
+      ["فرخة شواية كاملة",645],
+      ["نصف فرخة شواية",330]
+    ]},
+    { title:"فراخ مشوية على الفحم", items:[
+      ["فرخة مشوية على الفحم",675],
+      ["نصف فرخة مشوية على الفحم",345],
+      ["ربع فرخة صدر على الفحم",190],
+      ["ربع فرخة ورك على الفحم",170]
+    ]}
+  ]},
+  5: { title:"مشويات اللحمة", sections:[
+    { title:"مشاوي اللحم بالكيلو", cols:["كيلو","نص كيلو"], items:[
+      ["مشاوي مشكل",[1100,580]],
+      ["كباب شقف",[1250,650]],
+      ["ريش ضاني",[1600,850]],
+      ["ستيك لحم",[1550,800]],
+      ["كفتة كباب",[1100,600]],
+      ["كباب خشخاش",[1200,650],"صلصة الطماطم - فلفل حلو - فلفل حار - عيش"],
+      ["كبدة سودة",[1100,600]],
+      ["نخاع مشوي",[190,null]]
+    ], note:"تقدم مع: حمص - مخلل - طماطم مشوية - بصل مشوي - عيش"},
+    { title:"وجبات مشاوي اللحم", items:[
+      ["وجبة ميكس جريل",450],
+      ["وجبة ميكس لحوم",500],
+      ["وجبة كباب شقف",340],
+      ["وجبة ريش",400],
+      ["وجبة ستيك لحم",350],
+      ["وجبة كفتة كباب",300],
+      ["وجبة كبدة مشوية",300]
+    ], note:"تقدم مع: أرز - بطاطس - ثومية سبايسي - حمص - مخلل - عيش"}
+  ]},
+  6: { title:"فراخ كرسبي", sections:[
+    { title:"الوجبات", items:[
+      ["وجبة كرسبي 2 قطعة",160],
+      ["وجبة كرسبي 3 قطع",200],
+      ["وجبة كرسبي 5 قطع",280],
+      ["وجبة زنجر 2 قطعة",180],
+      ["وجبة زنجر 3 قطع",225],
+      ["وجبة زنجر 5 قطع",320],
+      ["وجبة فاهيتا",270],
+      ["وجبة مكسيكانو",260]
+    ]}
+  ]},
+  7: { title:"الطواجن", sections:[
+    { title:"الطواجن", cols:["كيلو","نص كيلو","وجبة"], items:[
+      ["شرحات لحمة مطفاية",[1370,700,375],"حامض - ثوم - مخلل - ليمون - عيش"],
+      ["شرحات فراخ مطفاية",[950,500,270],"حامض - ثومية - مخلل - ليمون - عيش"],
+      ["كباب هندي",[1300,670,350],"فلفل رومي - فلفل حامي - عيش"],
+      ["لحمة بالطحينة",[1250,650,350],"مخلل - ليمون - عيش"],
+      ["لحمة بالصحن",[1250,650,350],"مخلل - ليمون - عيش"],
+      ["مكسيكي عادي",[900,475,250],"ثومية - مخلل - عيش"],
+      ["مكسيكي بالجبنة",[950,500,275],"ثومية - مخلل - عيش"],
+      ["مجرمشة بالخضار",[1350,700,375],"مخلل - ليمون - عيش"],
+      ["كبدة سودة",[1100,575,300],"مخلل - ليمون - عيش"],
+      ["بطاطس باللحمة المفرومة",[1350,700,375],"مخلل - ليمون - عيش"],
+      ["سناسل ومخاصي",[1150,600,325],"مخلل - ليمون - عيش"],
+      ["لحمة بالصحن مع بطاطس",[1350,700,375],"كفتة مفرومة - طماطم أو طحينة - مخلل - ثومية - عيش"]
+    ]}
+  ]},
+  8: { title:"الصفائح", sections:[
+    { title:"الصفائح بالوزن", cols:["كيلو","نص","ربع"], items:[
+      ["صفيحة لحم بالطماطم",[1200,620,320],"لحمة مفرومة متبلة مع دبس رمان وطماطم"],
+      ["صفيحة لحم بالزبادي",[1200,620,320],"لحمة مفرومة متبلة مع دبس رمان وزبادي"],
+      ["صفيحة مجرمشة بالخضار",[1400,720,370],"لحمة خشنة مع الخضروات"],
+      ["صفيحة مجرمشة سادة",[1450,770,420],"لحمة خشنة مع فلفل أسود وملح"],
+      ["شرائح لحم على عجين",[1500,780,450],"بوفتيك لحمة على عجين"],
+      ["صفائح سناسل ومخاصي",[1245,690,345]],
+      ["فطائر جبنة شامية",[615,315,165],"جبنة عكاوي مع بقدونس"]
+    ]},
+    { title:"صفائح بالقطعة", items:[
+      ["صفيحة لحم بالطماطم",60],
+      ["صفيحة لحم بالزبادي",60],
+      ["صفيحة مجرمشة بالخضار",130],
+      ["صفيحة مجرمشة سادة",130],
+      ["شرحات لحم على عجين",200],
+      ["سناسل ومخاصي على عجين",150],
+      ["شرحات فراخ على عجين",90],
+      ["نخاع على عجين",170]
+    ]}
+  ]},
+  9: { title:"المناقيش", sections:[
+    { title:"المناقيش", items:[
+      ["منقوشة جبنة شامية",40],
+      ["منقوشة جبنة شامية مدورة",60],
+      ["منقوشة محمرة سادة",40],
+      ["منقوشة محمرة بالموتزاريلا",55],
+      ["منقوشة سجق سادة",60],
+      ["منقوشة توشكا",75,"سجق بالجبنة"],
+      ["منقوشة سوسيس سادة",45],
+      ["منقوشة سوسيس موتزاريلا",60],
+      ["منقوشة زعتر مع لبنة",50],
+      ["منقوشة زعتر مع حلوم",50],
+      ["منقوشة زعتر سادة",40],
+      ["منقوشة زعتر موتزاريلا",50],
+      ["منقوشة زعتر خضار",50],
+      ["منقوشة شيش سادة",60],
+      ["منقوشة شيش بالموتزاريلا",75],
+      ["منقوشة لبنة سادة",50],
+      ["منقوشة لبنة بالخضار",60],
+      ["منقوشة كيري",60],
+      ["منقوشة حلوم",60],
+      ["منقوشة زعتر محمرة",50],
+      ["منقوشة ميكس جبن",60],
+      ["منقوشة بيبروني موتزاريلا",60],
+      ["منقوشة تركي موتزاريلا",75],
+      ["منقوشة شاورما موتزاريلا",75]
+    ]},
+    { title:"الحلو", items:[
+      ["منقوشة شوكولاتة",60],
+      ["منقوشة شوكولاتة بالموز",65],
+      ["منقوشة لبنة وعسل",60],
+      ["منقوشة كيري وعسل",60]
+    ]}
+  ]},
+  10: { title:"البيتزا", sections:[
+    { title:"البيتزا", cols:["صغير","وسط","كبير"], items:[
+      ["بيتزا الفصول الأربعة",[165,195,210]],
+      ["بيتزا مارجريتا",[160,185,200]],
+      ["بيتزا شاورما فراخ",[215,245,270]],
+      ["بيتزا شيش طاووق",[180,245,270]],
+      ["بيتزا سجق لحم",[195,225,250]],
+      ["بيتزا تشكن رانش",[220,265,300]],
+      ["بيتزا تشكن باربيكيو",[220,265,300]],
+      ["بيتزا بيبروني",[210,250,280]],
+      ["بيتزا الياسمين",[220,265,300]],
+      ["بيتزا سوسيس",[175,205,225]],
+      ["بيتزا فيجي مشروم",[160,195,210]],
+      ["بيتزا ميكس جبن",[175,200,230]],
+      ["إضافة حشو أطراف",[50,60,100]]
+    ]}
+  ]},
+  11: { title:"المشروبات", sections:[
+    { title:"المشروبات", items:[
+      ["مشروب غازي",30,"بيبسي / ميرندا / سفن"],
+      ["مياه صغيرة",15],
+      ["عيران",30]
+    ]}
+  ]},
+  12: { title:"المقبلات", sections:[
+    { title:"السلطات", items:[
+      ["طبق تبولة",75],["طبق فتوش",75],["طبق جرجير",75],
+      ["طبق سيزر سادة",120],["طبق سيزر بالفراخ",180],["طبق سلطة خضراء",75]
+    ]},
+    { title:"المقبلات الباردة", items:[
+      ["طبق حمص بالطحينة",75],["طبق حمص بيروتي",85],["طبق متبل",75],["طبق بابا غنوج",75],
+      ["طبق ورق عنب 6 قطع",75],["طبق محمرة بالجوز",80],["طبق حمص باللحمة",230],
+      ["بولة زبادي سادة",30],["بولة زبادي بالخيار",45],["طبق ثومية",50],["طبق طحينة",50],
+      ["طبق كول سلو",70],["طبق مخلل مشكل",25],["بولة ليمون وثوم",25],["طبق عيش محمص",25]
+    ]},
+    { title:"المقبلات الساخنة", items:[
+      ["طبق أرز بسمتي",60],["طبق بطاطس",55],["طبق بطاطس شيدر",80],
+      ["قرص كبة مقلية",45],["قرص كبة مشوية",50],["رغيف محمرة هريسة",20],
+      ["قطعة سمبوسك جبنة",30],["قطعة سمبوسك لحمة",40]
+    ]}
+  ]},
+  13: { title:"السندوتشات", sections:[
+    { title:"سندوتشات البطاطس", items:[
+      ["ساندوتش بطاطس سوري وسط",50],
+      ["ساندوتش بطاطس سوري كبير",70],
+      ["ساندوتش بطاطس شامي وسط",45],
+      ["ساندوتش بطاطس شامي كبير",70],
+      ["ساندوتش بطاطس عيش فينو",90],
+      ["ساندوتش بطاطس فينو موتزاريلا",120],
+      ["ساندوتش بطاطس كبير موتزاريلا",90]
+    ]},
+    { title:"سندوتشات غربي", items:[
+      ["ساندوتش كرسبي",160],
+      ["ساندوتش زنجر",175],
+      ["ساندوتش فاهيتا",170],
+      ["ساندوتش مكسيكانو",175],
+      ["برجر لحمة أورجينال",180],
+      ["برجر لحمة دبل",260],
+      ["برجر فراخ أورجينال",150],
+      ["برجر فراخ دبل",195],
+      ["كرسبي برجر",150],
+      ["زنجر برجر",165]
+    ]},
+    { title:"سندوتشات المشويات", items:[
+      ["ساندوتش كباب شقف",170],
+      ["ساندوتش كفتة كباب",145],
+      ["ساندوتش كفتة كباب فراخ",115],
+      ["ساندوتش شيش طاووق",135],
+      ["ساندوتش كبدة سودة",130]
+    ]}
+  ]}
+};
+
+/* ترتيب الأقسام في القائمة الرئيسية — نفس ترتيب وروابط المنيو القديم */
+const ORDER = [3,4,5,6,10,9,7,8,13,12,11];
+
+/* ===================================================================== */
+const app = document.getElementById('app');
+const $ = id => document.getElementById(id);
+const fmt = n => n.toLocaleString('en-US');
+const D = Number(CONFIG.DISCOUNT) || 0;
+
+const offerHTML = () => D ? `<div class="offer"><span class="spark"></span>
+  <div class="ob"><span>خصم</span><b>${D}%</b></div>
+  <div class="ot"><b>عرض لفترة محدودة</b><span>خصم ${D}% على كل أصناف المنيو</span></div></div>` : '';
+const icons = {
+  arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>'
+};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- السلة (تتحفظ على الجهاز) ---------- */
+let cart = {};
+try { cart = JSON.parse(localStorage.getItem('yasmina-cart') || '{}') || {}; } catch(e) { cart = {}; }
+function saveCart(){ try { localStorage.setItem('yasmina-cart', JSON.stringify(cart)); } catch(e) {} }
+const cartCount = () => Object.values(cart).reduce((a,b)=>a+b.qty,0);
+const cartTotal = () => Object.values(cart).reduce((a,b)=>a+b.qty*b.price,0);
+
+function getPage(){
+  let p = Number(new URLSearchParams(location.search).get('page') || 1);
+  if (!Number.isInteger(p) || p < 1 || p > 13) p = 1;
+  return p;
+}
+
+/* ---------- الرسم ---------- */
+function render(page, push){
+  if (push) history.pushState({page}, '', '?page=' + page);
+  window.scrollTo(0,0);
+  app.classList.remove('fade'); void app.offsetWidth; app.classList.add('fade');
+  if (page === 1) renderCover();
+  else if (page === 2) renderCategories();
+  else renderCategory(page);
+
+  // زر الرجوع للرئيسية
+  const home = $('homeBtn');
+  if (page <= 2) { home.href = '?page=1'; $('homeLbl').textContent = 'الصفحة الرئيسية'; }
+  else { home.href = '?page=2'; $('homeLbl').textContent = 'القائمة الرئيسية'; }
+  document.title = page > 2 ? MENU[page].title + ' | منيو الياسمين' : 'منيو الياسمين';
+  updateBadge();
+}
+
+function renderCover(){
+  app.innerHTML = `
+  <section class="cover">
+    <div class="photo"></div>
+    <img class="logo" src="assets/logo.png" alt="الياسمين">
+    <p class="tag">للمأكولات السورية</p>
+    <p class="sub">شاورما • مشويات • بيتزا • مناقيش • صفائح</p>
+    ${offerHTML()}
+    <a class="cta" href="?page=2" data-nav>MENU
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></a>
+  </section>`;
+}
+
+function renderCategories(){
+  const cards = ORDER.map((p,i) => {
+    const m = MENU[p];
+    const n = m.sections.reduce((a,s)=>a+s.items.length,0);
+    const wide = (i === ORDER.length-1) ? ' wide' : '';
+    return `<a class="cat${wide}" href="?page=${p}" data-nav style="animation-delay:${i*40}ms">
+      <span class="num">${String(i+1).padStart(2,'0')}</span>
+      <span class="name">${m.title}</span>
+      <span class="meta"><span>${n} صنف</span><span class="go">${icons.arrow}</span></span>
+    </a>`;
+  }).join('');
+  app.innerHTML = `
+  <header class="head"><div class="photo"></div>
+    <img class="logo" src="assets/logo.png" alt="الياسمين">
+    <h1>المنيو<span class="dot">.</span></h1>
+    <div class="small">اختار القسم</div>
+  </header>
+  ${offerHTML()}
+  <div class="grid">${cards}</div>
+  <div class="hint"><span class="ic">+</span><span>دوس على <b>السعر</b> عشان تضيف الصنف لطلبك، وبعدين ابعته على <b>واتساب</b> بضغطة واحدة.</span></div>
+  <p class="foot">الأسعار بالجنيه المصري</p>`;
+}
+
+function renderCategory(page){
+  const m = MENU[page];
+  const idx = ORDER.indexOf(page);
+  const prev = ORDER[(idx - 1 + ORDER.length) % ORDER.length];
+  const next = ORDER[(idx + 1) % ORDER.length];
+
+  const chips = m.sections.length > 1
+    ? `<nav class="chips">${m.sections.map((s,i)=>`<button class="chip${i?'':' on'}" data-go="s${i}">${s.title}</button>`).join('')}</nav>` : '';
+
+  const secs = m.sections.map((s,si) => {
+    const cols = s.cols ? `<div class="cols">${s.cols.map(c=>`<span>${c}</span>`).join('')}</div>` : '';
+    const rows = s.items.map((it,ii) => {
+      const [name, price, desc] = it;
+      const arr = Array.isArray(price) ? price : [price];
+      const btns = arr.map((pr,pi) => {
+        if (pr == null) return `<span class="p empty"></span>`;
+        const label = s.cols ? s.cols[pi] : '';
+        const key = `${page}-${si}-${ii}-${pi}`;
+        const q = cart[key] ? cart[key].qty : 0;
+        return `<button class="p${s.cols?'':' single'}${q?' in':''}" data-key="${key}" data-name="${esc(name)}" data-size="${esc(label)}" data-price="${pr}" aria-label="أضف ${esc(name)} ${esc(label)} ${pr} جنيه">
+          ${fmt(pr)}<span class="q">${q}</span></button>`;
+      }).join('');
+      return `<div class="row"><div class="nm"><div class="t">${name}</div>${desc?`<div class="d">${desc}</div>`:''}</div><div class="prices">${btns}</div></div>`;
+    }).join('');
+    const note = s.note ? `<p class="note">${s.note.replace(/^(تقدم مع:)/,'<b>$1</b>')}</p>` : '';
+    return `<section class="sec" id="s${si}" style="animation-delay:${si*60}ms">
+      <div class="sec-h"><h2>${s.title}</h2><span class="cnt">${s.items.length} صنف</span></div>${cols}${rows}${note}</section>`;
+  }).join('');
+
+  app.innerHTML = `
+  <header class="head"><div class="photo"></div>
+    <a href="?page=1" data-nav><img class="logo" src="assets/logo.png" alt="الياسمين"></a>
+    <h1>${m.title}</h1>
+  </header>
+  ${offerHTML()}
+  ${chips}${secs}
+  <div class="pager">
+    <a href="?page=${prev}" data-nav><small>القسم السابق</small><b>${MENU[prev].title}</b></a>
+    <a class="nx" href="?page=${next}" data-nav><small>القسم التالي</small><b>${MENU[next].title}</b></a>
+  </div>
+  <p class="foot">الأسعار بالجنيه المصري • دوس على السعر لإضافته لطلبك</p>`;
+  setupChips();
+}
+
+/* ---------- تنقل الأقسام الداخلية ---------- */
+let chipObs;
+function setupChips(){
+  if (chipObs) chipObs.disconnect();
+  const chips = [...document.querySelectorAll('.chip')];
+  if (!chips.length) return;
+  chips.forEach(c => c.onclick = () => document.getElementById(c.dataset.go).scrollIntoView({behavior:'smooth'}));
+  chipObs = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) {
+      chips.forEach(c => c.classList.toggle('on', c.dataset.go === e.target.id));
+      const on = chips.find(c=>c.dataset.go===e.target.id); on && on.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+    }});
+  }, {rootMargin:'-40% 0px -55% 0px'});
+  document.querySelectorAll('.sec').forEach(s => chipObs.observe(s));
+}
+
+/* ---------- التفاعل ---------- */
+document.addEventListener('click', e => {
+  const nav = e.target.closest('a[data-nav]');
+  if (nav && !e.metaKey && !e.ctrlKey) {
+    e.preventDefault();
+    const p = Number(new URL(nav.href).searchParams.get('page') || 1);
+    render(p, true);
+    return;
+  }
+  const p = e.target.closest('.p[data-key]');
+  if (p) { addItem(p); return; }
+});
+
+function addItem(btn){
+  const {key,name,size,price} = btn.dataset;
+  if (!cart[key]) cart[key] = {name, size, price:Number(price), qty:0};
+  cart[key].qty++;
+  saveCart();
+  btn.classList.add('in');
+  btn.querySelector('.q').textContent = cart[key].qty;
+  if (navigator.vibrate) try { navigator.vibrate(12); } catch(e){}
+  toast(`✓ اتضاف: ${name}${size?' ('+size+')':''}`);
+  updateBadge(true);
+}
+
+function updateBadge(anim){
+  const b = $('badge'), n = cartCount();
+  b.textContent = n;
+  b.classList.toggle('show', n > 0);
+  if (anim && n) { b.classList.remove('show'); void b.offsetWidth; b.classList.add('show'); }
+}
+
+let tt;
+function toast(msg){
+  const t = $('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(tt); tt = setTimeout(()=>t.classList.remove('show'), 1600);
+}
+
+/* تأثير الضغط على الأزرار */
+document.querySelectorAll('.btn').forEach(b => b.addEventListener('pointerdown', e => {
+  const r = b.getBoundingClientRect(), s = Math.max(r.width, r.height);
+  const d = document.createElement('span'); d.className = 'ripple';
+  d.style.cssText = `width:${s}px;height:${s}px;left:${e.clientX-r.left-s/2}px;top:${e.clientY-r.top-s/2}px`;
+  b.appendChild(d); setTimeout(()=>d.remove(), 600);
+}));
+
+/* ---------- الاتصال ---------- */
+$('callBtn').addEventListener('click', e => {
+  if (!CONFIG.PHONE) { e.preventDefault(); toast('رقم التليفون هيتضاف قريباً'); return; }
+  $('callBtn').href = 'tel:' + CONFIG.PHONE;
+});
+if (CONFIG.PHONE) $('callBtn').href = 'tel:' + CONFIG.PHONE;
+
+/* ---------- واتساب ---------- */
+function waLink(text){ return `https://wa.me/${CONFIG.WHATSAPP}?text=${encodeURIComponent(text)}`; }
+function openWA(text){
+  if (!CONFIG.WHATSAPP) { toast('رقم الواتساب هيتضاف قريباً'); return; }
+  window.open(waLink(text), '_blank');
+}
+$('waBtn').addEventListener('click', () => {
+  if (cartCount() > 0) openSheet();
+  else openWA(`أهلاً ${CONFIG.NAME} 👋\nحابب أطلب من المنيو${D?` (عرض خصم ${D}%)`:''}.`);
+});
+
+function orderText(){
+  const lines = Object.values(cart).filter(i=>i.qty>0).map(i =>
+    `• ${i.qty} × ${i.name}${i.size?' ('+i.size+')':''} = ${fmt(i.qty*i.price)} ج`);
+  const totals = `الإجمالي: ${fmt(cartTotal())} جنيه` + (D ? `\n(عرض خصم ${D}%)` : '');
+  return `طلب جديد من منيو ${CONFIG.NAME} 🌼\n\n${lines.join('\n')}\n\n${totals}\n\nالاسم:\nالعنوان:\nملاحظات:`;
+}
+
+/* ---------- شاشة الطلب ---------- */
+function openSheet(){ $('toast').classList.remove('show'); drawSheet(); $('sheet').classList.add('open'); $('scrim').classList.add('open'); }
+function closeSheet(){ $('sheet').classList.remove('open'); $('scrim').classList.remove('open'); }
+$('scrim').onclick = closeSheet;
+
+function drawSheet(){
+  const entries = Object.entries(cart).filter(([,i])=>i.qty>0);
+  if (!entries.length) {
+    $('items').innerHTML = `<div class="empty-cart">طلبك فاضي — دوس على أسعار الأصناف عشان تضيفها.</div>`;
+    $('totalBox').innerHTML = ''; $('sendBtn').style.display = 'none'; $('clearBtn').style.display='none'; return;
+  }
+  $('sendBtn').style.display = ''; $('clearBtn').style.display='';
+  $('items').innerHTML = entries.map(([k,i]) => `
+    <div class="it">
+      <div class="nm">${esc(i.name)}${i.size?`<small>${esc(i.size)}</small>`:''}</div>
+      <div class="step"><button data-inc="${k}" aria-label="زيادة">+</button><span>${i.qty}</span><button data-dec="${k}" aria-label="نقص">−</button></div>
+      <div class="sum">${fmt(i.qty*i.price)}</div>
+    </div>`).join('');
+  $('totalBox').innerHTML = `<div class="total"><span>الإجمالي</span><span>${fmt(cartTotal())} ج</span></div>
+    ${D ? `<div class="total save"><span>🎉 عرض خصم ${D}% على المنيو</span></div>` : ''}
+    <div class="small-note">الإجمالي تقريبي وقد تُضاف رسوم التوصيل.</div>`;
+}
+$('items').addEventListener('click', e => {
+  const inc = e.target.closest('[data-inc]'), dec = e.target.closest('[data-dec]');
+  if (inc) cart[inc.dataset.inc].qty++;
+  if (dec) { const k = dec.dataset.dec; cart[k].qty--; if (cart[k].qty <= 0) delete cart[k]; }
+  if (inc || dec) { saveCart(); drawSheet(); updateBadge(); syncPrices(); }
+});
+$('clearBtn').onclick = () => { cart = {}; saveCart(); drawSheet(); updateBadge(); syncPrices(); };
+$('sendBtn').onclick = () => openWA(orderText());
+
+function syncPrices(){
+  document.querySelectorAll('.p[data-key]').forEach(b => {
+    const q = cart[b.dataset.key] ? cart[b.dataset.key].qty : 0;
+    b.classList.toggle('in', q > 0); b.querySelector('.q').textContent = q;
+  });
+}
+
+window.addEventListener('popstate', () => { closeSheet(); render(getPage(), false); });
+render(getPage(), false);
+</script>
+</body>
+</html>
